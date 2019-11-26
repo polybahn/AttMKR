@@ -1,3 +1,4 @@
 .DS*
 data/yelp/*
 src/__pycache__/*
+.*

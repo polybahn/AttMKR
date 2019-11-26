@@ -48,6 +48,76 @@ class Dense(Layer):
         return self.act(output)
 
 
+class AttentionUnit(Layer):
+    def __init__(self, dim, channel, use_bias=True, name=None):
+        super(AttentionUnit, self).__init__(name)
+        self.use_bias = use_bias
+        self.dim = dim
+        self.c = channel
+        with tf.variable_scope(self.name):
+            self.weight_f = tf.get_variable(name='weight_f', shape=(1, channel), dtype=tf.float32)
+            self.weight_g = tf.get_variable(name='weight_g', shape=(1, channel), dtype=tf.float32)
+            self.bias_f = tf.get_variable(name='bias_f', shape=channel, initializer=tf.zeros_initializer())
+            self.bias_g = tf.get_variable(name='bias_g', shape=channel, initializer=tf.zeros_initializer())
+            self.weight_h = tf.get_variable(name='weight_h', shape=(1, channel), dtype=tf.float32)
+            self.weight_l = tf.get_variable(name='weight_l', shape=(1, channel), dtype=tf.float32)
+            self.bias_h = tf.get_variable(name='bias_h', shape=channel, initializer=tf.zeros_initializer())
+            self.bias_l = tf.get_variable(name='bias_l', shape=channel, initializer=tf.zeros_initializer())
+            self.weight_m = tf.get_variable(name='weight_m', shape=(channel, 1), dtype=tf.float32)
+            self.weight_n = tf.get_variable(name='weight_n', shape=(channel, 1), dtype=tf.float32)
+            self.bias_m = tf.get_variable(name='bias_m', shape=dim, initializer=tf.zeros_initializer())
+            self.bias_n = tf.get_variable(name='bias_n', shape=dim, initializer=tf.zeros_initializer())
+            self.gamma = tf.get_variable(name="gamma", shape=1, initializer=tf.zeros_initializer())
+        self.vars = [self.weight_f, self.weight_g, self.weight_h, self.weight_l, self.weight_m, self.weight_n, self.gamma]
+
+    def _call(self, inputs):
+        # [batch_size, dim]
+        ori_v, ori_e = inputs
+
+        # [batch_size * dim, 1], [batch_size * dim, 1]
+        v = tf.reshape(ori_v, [-1, 1])
+        e = tf.reshape(ori_e, [-1, 1])
+
+        # [batch_size, dim, c], [batch_size, dim, c]
+        f_v = tf.reshape(tf.matmul(v, self.weight_f), [-1, self.dim, self.c])
+        g_e = tf.reshape(tf.matmul(e, self.weight_g), [-1, self.dim, self.c])
+        f_v = tf.nn.bias_add(f_v, self.bias_f) if self.use_bias else f_v
+        g_e = tf.nn.bias_add(g_e, self.bias_g) if self.use_bias else g_e
+
+        # [batch_size, dim, c], [batch_size, dim, c]
+        h_v = tf.reshape(tf.matmul(v, self.weight_h), [-1, self.dim, self.c])
+        l_e = tf.reshape(tf.matmul(e, self.weight_l), [-1, self.dim, self.c])
+        h_v = tf.nn.bias_add(h_v, self.bias_h) if self.use_bias else h_v
+        l_e = tf.nn.bias_add(l_e, self.bias_l) if self.use_bias else l_e
+
+        # [batch_size, dim, dim], [batch_size, dim, dim]
+        s_matrix = tf.matmul(g_e, tf.transpose(f_v, perm=[0, 2, 1]))
+        s_matrix_transpose = tf.transpose(s_matrix, perm=[0, 2, 1])
+
+        # [batch_size, dim, dim], [batch_size, dim, dim]
+        beta_ev = tf.nn.softmax(s_matrix)
+        beta_ve = tf.nn.softmax(s_matrix_transpose)
+
+        # [batch_size * dim, c]
+        o_v = tf.reshape(tf.matmul(beta_ev, h_v), [-1, self.c])
+        o_e = tf.reshape(tf.matmul(beta_ve, l_e), [-1, self.c])
+
+        # [batch_size, dim]
+        o_v = tf.reshape(tf.matmul(o_v, self.weight_m), [-1, self.dim])
+        o_e = tf.reshape(tf.matmul(o_e, self.weight_n), [-1, self.dim])
+        o_v = tf.nn.bias_add(o_v, self.bias_n) if self.use_bias else o_v
+        o_e = tf.nn.bias_add(o_e, self.bias_m) if self.use_bias else o_e
+
+        #
+        v_output = ori_v + self.gamma * o_v
+        e_output = ori_e + self.gamma * o_e
+
+        return v_output, e_output
+
+
+
+
+
 class CrossCompressUnit(Layer):
     def __init__(self, dim, name=None):
         super(CrossCompressUnit, self).__init__(name)
