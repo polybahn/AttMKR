@@ -10,7 +10,7 @@ parser = argparse.ArgumentParser()
 
 ## yelp
 parser.add_argument('--dataset', type=str, default='yelp', help='which dataset to use')
-parser.add_argument('--n_epochs', type=int, default=30, help='the number of epochs')
+parser.add_argument('--n_epochs', type=int, default=60, help='the number of epochs')
 parser.add_argument('--dim', type=int, default=8, help='dimension of user and entity embeddings')
 parser.add_argument('--channel', type=int, default=8, help='number of channels in attention unit')
 parser.add_argument('--L', type=int, default=3, help='number of low layers')

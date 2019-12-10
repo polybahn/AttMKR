@@ -28,9 +28,9 @@
 #python main_music.py --att True | tee -a ../results/music-att.txt
 
 python main_yelp.py --att True | tee -a ../results/yelp-att.txt
-python main_yelp.py --att True | tee -a ../results/yelp-att.txt
-python main_yelp.py --att True | tee -a ../results/yelp-att.txt
+#python main_yelp.py --att True | tee -a ../results/yelp-att.txt
+#python main_yelp.py --att True | tee -a ../results/yelp-att.txt
 
 python main_yelp.py | tee -a ../results/yelp-cross.txt
-python main_yelp.py | tee -a ../results/yelp-cross.txt
-python main_yelp.py | tee -a ../results/yelp-cross.txt
+#python main_yelp.py | tee -a ../results/yelp-cross.txt
+#python main_yelp.py | tee -a ../results/yelp-cross.txt
