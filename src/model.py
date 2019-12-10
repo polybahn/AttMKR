@@ -116,7 +116,7 @@ class MKR(object):
         self.l2_loss_kge = tf.nn.l2_loss(self.head_embeddings) + tf.nn.l2_loss(self.tail_embeddings)
         for var in self.vars_kge:
             self.l2_loss_kge += tf.nn.l2_loss(var)
-        self.loss_kge = self.base_loss_kge + self.l2_loss_kge * args.l2_weight
+        self.loss_kge = args.l1_weight * self.base_loss_kge + self.l2_loss_kge * args.l2_weight
 
     def _build_train(self, args):
         self.optimizer_rs = tf.train.AdamOptimizer(args.lr_rs).minimize(self.loss_rs)
