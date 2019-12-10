@@ -50,9 +50,12 @@ class MKR(object):
         for _ in range(args.L):
             user_mlp = Dense(input_dim=args.dim, output_dim=args.dim)
             tail_mlp = Dense(input_dim=args.dim, output_dim=args.dim)
-            cc_unit1 = AttentionUnit(args.dim, args.channel)
-            cc_unit2 = AttentionUnit(args.dim, args.channel)
-            #cc_unit = CrossCompressUnit(args.dim)
+            if args.att:
+                cc_unit1 = AttentionUnit(args.dim, args.channel)
+                cc_unit2 = AttentionUnit(args.dim, args.channel)
+            else:
+                cc_unit1 = CrossCompressUnit(args.dim)
+                cc_unit2 = CrossCompressUnit(args.dim)
 
             # self.user_embeddings = user_mlp(self.user_embeddings)
             self.user_embeddings, self.relation_embeddings = cc_unit1([self.user_embeddings, self.relation_embeddings])
