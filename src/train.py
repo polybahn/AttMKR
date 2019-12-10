@@ -71,7 +71,8 @@ def get_feed_dict_for_rs(model, data, start, end):
     feed_dict = {model.user_indices: data[start:end, 0],
                  model.item_indices: data[start:end, 1],
                  model.labels: data[start:end, 2],
-                 model.head_indices: data[start:end, 1]}
+                 model.head_indices: data[start:end, 1],
+                 model.relation_indices: data[start:end, 3]}
     return feed_dict
 
 
@@ -79,7 +80,8 @@ def get_feed_dict_for_kge(model, kg, start, end):
     feed_dict = {model.item_indices: kg[start:end, 0],
                  model.head_indices: kg[start:end, 0],
                  model.relation_indices: kg[start:end, 1],
-                 model.tail_indices: kg[start:end, 2]}
+                 model.tail_indices: kg[start:end, 2],
+                 model.user_indices: kg[start:end, 3]}
     return feed_dict
 
 

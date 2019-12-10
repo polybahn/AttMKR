@@ -50,17 +50,21 @@ class MKR(object):
         for _ in range(args.L):
             user_mlp = Dense(input_dim=args.dim, output_dim=args.dim)
             tail_mlp = Dense(input_dim=args.dim, output_dim=args.dim)
-            cc_unit = AttentionUnit(args.dim, args.channel)
+            cc_unit1 = AttentionUnit(args.dim, args.channel)
+            cc_unit2 = AttentionUnit(args.dim, args.channel)
             #cc_unit = CrossCompressUnit(args.dim)
 
-            self.user_embeddings = user_mlp(self.user_embeddings)
-            self.item_embeddings, self.head_embeddings = cc_unit([self.item_embeddings, self.head_embeddings])
+            # self.user_embeddings = user_mlp(self.user_embeddings)
+            self.user_embeddings, self.relation_embeddings = cc_unit1([self.user_embeddings, self.relation_embeddings])
+            self.item_embeddings, self.head_embeddings = cc_unit2([self.item_embeddings, self.head_embeddings])
             self.tail_embeddings = tail_mlp(self.tail_embeddings)
 
             self.vars_rs.extend(user_mlp.vars)
-            self.vars_rs.extend(cc_unit.vars)
+            self.vars_rs.extend(cc_unit1.vars)
+            self.vars_rs.extend(cc_unit2.vars)
             self.vars_kge.extend(tail_mlp.vars)
-            self.vars_kge.extend(cc_unit.vars)
+            self.vars_kge.extend(cc_unit1.vars)
+            self.vars_rs.extend(cc_unit2.vars)
 
     def _build_high_layers(self, args):
         # RS
