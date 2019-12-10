@@ -1,0 +1,54 @@
+reading rating file ...
+splitting dataset ...
+reading KG file ...
+data loaded.
+epoch 0    train auc: 0.6237  acc: 0.5751    eval auc: 0.5975  acc: 0.5669    test auc: 0.5973  acc: 0.5601
+epoch 1    train auc: 0.7853  acc: 0.5519    eval auc: 0.7077  acc: 0.5529    test auc: 0.7034  acc: 0.5464
+epoch 2    train auc: 0.8197  acc: 0.5708    eval auc: 0.7236  acc: 0.5704    test auc: 0.7206  acc: 0.5639
+epoch 3    train auc: 0.8330  acc: 0.5818    eval auc: 0.7278  acc: 0.5794    test auc: 0.7256  acc: 0.5750
+epoch 4    train auc: 0.8401  acc: 0.5909    eval auc: 0.7291  acc: 0.5882    test auc: 0.7271  acc: 0.5832
+epoch 5    train auc: 0.8439  acc: 0.5945    eval auc: 0.7282  acc: 0.5930    test auc: 0.7264  acc: 0.5869
+epoch 6    train auc: 0.8460  acc: 0.5976    eval auc: 0.7262  acc: 0.5949    test auc: 0.7247  acc: 0.5896
+epoch 7    train auc: 0.8468  acc: 0.6005    eval auc: 0.7237  acc: 0.5970    test auc: 0.7226  acc: 0.5925
+epoch 8    train auc: 0.8466  acc: 0.6022    eval auc: 0.7207  acc: 0.5985    test auc: 0.7199  acc: 0.5939
+epoch 9    train auc: 0.8464  acc: 0.6097    eval auc: 0.7188  acc: 0.6060    test auc: 0.7182  acc: 0.6006
+epoch 10    train auc: 0.8458  acc: 0.6143    eval auc: 0.7170  acc: 0.6105    test auc: 0.7167  acc: 0.6049
+epoch 11    train auc: 0.8458  acc: 0.6243    eval auc: 0.7165  acc: 0.6184    test auc: 0.7163  acc: 0.6120
+epoch 12    train auc: 0.8454  acc: 0.6312    eval auc: 0.7160  acc: 0.6252    test auc: 0.7159  acc: 0.6189
+epoch 13    train auc: 0.8456  acc: 0.6414    eval auc: 0.7162  acc: 0.6338    test auc: 0.7162  acc: 0.6261
+epoch 14    train auc: 0.8456  acc: 0.6482    eval auc: 0.7163  acc: 0.6399    test auc: 0.7163  acc: 0.6318
+epoch 15    train auc: 0.8460  acc: 0.6564    eval auc: 0.7169  acc: 0.6476    test auc: 0.7169  acc: 0.6388
+epoch 16    train auc: 0.8458  acc: 0.6621    eval auc: 0.7169  acc: 0.6522    test auc: 0.7169  acc: 0.6432
+epoch 17    train auc: 0.8466  acc: 0.6701    eval auc: 0.7179  acc: 0.6593    test auc: 0.7180  acc: 0.6502
+epoch 18    train auc: 0.8473  acc: 0.6766    eval auc: 0.7189  acc: 0.6627    test auc: 0.7189  acc: 0.6557
+epoch 19    train auc: 0.8480  acc: 0.6826    eval auc: 0.7196  acc: 0.6664    test auc: 0.7197  acc: 0.6595
+epoch 20    train auc: 0.8486  acc: 0.6867    eval auc: 0.7203  acc: 0.6690    test auc: 0.7204  acc: 0.6626
+epoch 21    train auc: 0.8494  acc: 0.6917    eval auc: 0.7212  acc: 0.6732    test auc: 0.7212  acc: 0.6659
+epoch 22    train auc: 0.8504  acc: 0.6965    eval auc: 0.7223  acc: 0.6764    test auc: 0.7223  acc: 0.6693
+epoch 23    train auc: 0.8515  acc: 0.7009    eval auc: 0.7234  acc: 0.6791    test auc: 0.7233  acc: 0.6728
+epoch 24    train auc: 0.8525  acc: 0.7054    eval auc: 0.7244  acc: 0.6820    test auc: 0.7243  acc: 0.6762
+epoch 25    train auc: 0.8537  acc: 0.7102    eval auc: 0.7256  acc: 0.6859    test auc: 0.7255  acc: 0.6792
+epoch 26    train auc: 0.8546  acc: 0.7137    eval auc: 0.7264  acc: 0.6879    test auc: 0.7263  acc: 0.6826
+epoch 27    train auc: 0.8556  acc: 0.7169    eval auc: 0.7273  acc: 0.6901    test auc: 0.7271  acc: 0.6858
+epoch 28    train auc: 0.8565  acc: 0.7203    eval auc: 0.7280  acc: 0.6931    test auc: 0.7279  acc: 0.6873
+epoch 29    train auc: 0.8575  acc: 0.7236    eval auc: 0.7289  acc: 0.6952    test auc: 0.7287  acc: 0.6905
+epoch 30    train auc: 0.8585  acc: 0.7273    eval auc: 0.7298  acc: 0.6981    test auc: 0.7295  acc: 0.6926
+epoch 31    train auc: 0.8594  acc: 0.7299    eval auc: 0.7304  acc: 0.6997    test auc: 0.7302  acc: 0.6934
+epoch 32    train auc: 0.8602  acc: 0.7323    eval auc: 0.7311  acc: 0.7009    test auc: 0.7308  acc: 0.6952
+epoch 33    train auc: 0.8611  acc: 0.7353    eval auc: 0.7318  acc: 0.7025    test auc: 0.7315  acc: 0.6967
+epoch 34    train auc: 0.8618  acc: 0.7370    eval auc: 0.7321  acc: 0.7025    test auc: 0.7319  acc: 0.6977
+epoch 35    train auc: 0.8626  acc: 0.7399    eval auc: 0.7327  acc: 0.7031    test auc: 0.7324  acc: 0.6978
+epoch 36    train auc: 0.8633  acc: 0.7412    eval auc: 0.7330  acc: 0.7041    test auc: 0.7327  acc: 0.6987
+epoch 37    train auc: 0.8641  acc: 0.7438    eval auc: 0.7335  acc: 0.7046    test auc: 0.7332  acc: 0.6990
+epoch 38    train auc: 0.8648  acc: 0.7455    eval auc: 0.7338  acc: 0.7050    test auc: 0.7335  acc: 0.6986
+epoch 39    train auc: 0.8654  acc: 0.7473    eval auc: 0.7341  acc: 0.7054    test auc: 0.7338  acc: 0.6996
+epoch 40    train auc: 0.8661  acc: 0.7481    eval auc: 0.7341  acc: 0.7051    test auc: 0.7338  acc: 0.6998
+epoch 41    train auc: 0.8667  acc: 0.7500    eval auc: 0.7344  acc: 0.7057    test auc: 0.7341  acc: 0.7009
+epoch 42    train auc: 0.8673  acc: 0.7517    eval auc: 0.7347  acc: 0.7065    test auc: 0.7344  acc: 0.7013
+epoch 43    train auc: 0.8679  acc: 0.7524    eval auc: 0.7348  acc: 0.7068    test auc: 0.7345  acc: 0.7017
+epoch 44    train auc: 0.8686  acc: 0.7534    eval auc: 0.7349  acc: 0.7074    test auc: 0.7346  acc: 0.7026
+epoch 45    train auc: 0.8691  acc: 0.7546    eval auc: 0.7351  acc: 0.7072    test auc: 0.7348  acc: 0.7030
+epoch 46    train auc: 0.8697  acc: 0.7551    eval auc: 0.7352  acc: 0.7073    test auc: 0.7348  acc: 0.7035
+epoch 47    train auc: 0.8703  acc: 0.7556    eval auc: 0.7352  acc: 0.7076    test auc: 0.7349  acc: 0.7034
+epoch 48    train auc: 0.8709  acc: 0.7561    eval auc: 0.7352  acc: 0.7083    test auc: 0.7349  acc: 0.7035
+epoch 49    train auc: 0.8715  acc: 0.7569    eval auc: 0.7353  acc: 0.7088    test auc: 0.7349  acc: 0.7040
